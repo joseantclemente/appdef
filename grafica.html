@@ -68,7 +68,7 @@ var activaanual, reactivaanual, porcentajeanual;
     
         <script type="text/javascript">
     	setInterval(function() {
-			$.getJSON('/funciones/excesosreactivaapp.php?id='+ide+'&fechaini=14-10-2014&fechafin=21-10-2014&fechas=21-10-2014', function(point, textStatus){
+			$.getJSON('http://controllerenergetico.dyndns.org:8081/funciones/excesosreactivaapp.php?id='+ide+'&fechaini=14-10-2014&fechafin=21-10-2014&fechas=21-10-2014', function(point, textStatus){
 				document.getElementById('suministro').innerHTML = point.poblacion;
 
 			document.getElementById('activadiaria').innerHTML=point.activadiaria+" kW";
