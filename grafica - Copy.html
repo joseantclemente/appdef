@@ -13,7 +13,7 @@
  	<script type="text/javascript" src="js/js.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>    
 	<script src="//code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>  
-    
+    <script type="text/javascript" src="//www.google.com/jsapi"></script>
  
  
  
@@ -130,8 +130,29 @@ function cogerDatos()
 			reactivasemanal=point.reactivasemanal;
 			porcentajesemanal=point.porcentajesemanal;
 					
-			
-			
+			var graficas=point.grafica.split("|");
+			for (i=0;i<graficas.length;i++)
+			{
+				var graficas2=graficas[i].split(",");
+				var valores=[];
+				valores.push(new Date(graficas2[0],graficas2[1],graficas2[2],graficas2[3],graficas2[4]));
+				valores.push(parseFloat(graficas2[5]));
+				valores.push(parseFloat(graficas2[6]));
+				
+				if (i==0)
+				{
+					anyo=parseInt(graficas2[0]);
+					mes=parseInt(graficas2[1]);
+					dia=parseInt(graficas2[2]);
+				}
+				
+				if (i!=192)
+				{
+					activa.push(parseFloat(graficas2[5]));
+					reactiva.push(parseFloat(graficas2[6]));
+				}
+				
+			}
 
 		}
 	});
