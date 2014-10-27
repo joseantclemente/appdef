@@ -69,7 +69,7 @@ parametro=(ayer.getDate()+"-"+(ayer.getMonth()+1)+"-"+ayer.getFullYear());
     	setInterval(function() {
 			$.getJSON("http://controllerenergetico.dyndns.org:8081/conexiones/treal3inicio.php?id="+ide, function(data, textStatus){
 				
-				document.getElementById('suministro').innerHTML = data.Poblacion;
+				
 
 			});
 		}, 1000);
@@ -78,29 +78,19 @@ parametro=(ayer.getDate()+"-"+(ayer.getMonth()+1)+"-"+ayer.getFullYear());
         <script type="text/javascript">
     	setInterval(function() {
 			$.getJSON('/funciones/excesosreactivaapp.php?id='+ide+'&fechaini=14-10-2014&fechafin=21-10-2014&fechas='+parametro, function(point, textStatus){
-				
-				activadiaria=point.activadiaria;
-			reactivadiaria=point.reactivadiaria;
-			porcentajediario=point.porcentajediario;
+				document.getElementById('suministro').innerHTML = point.poblacion;
 
-			activamensual=point.activamensual;
-			reactivamensual=point.reactivamensual;
-			porcentajemensual=point.porcentajemensual;
+			document.getElementById('activadiaria').innerHTML=point.activadiaria+" kW";
+document.getElementById('reactivadiaria').innerHTML=point.reactivadiaria+" kW";
+document.getElementById('porcentajediario').innerHTML=point.porcentajediario+" %";
 
-			activasemanal=point.activasemanal;
-			reactivasemanal=point.reactivasemanal;
-			porcentajesemanal=point.porcentajesemanal;
-			document.getElementById('activadiaria').innerHTML=activadiaria+" kW";
-document.getElementById('reactivadiaria').innerHTML=reactivadiaria+" kW";
-document.getElementById('porcentajediario').innerHTML=porcentajediario+" %";
+document.getElementById('activamensual').innerHTML=point.activamensual+" kW";
+document.getElementById('reactivamensual').innerHTML=point.reactivamensual+" kW";
+document.getElementById('porcentajemensual').innerHTML=point.porcentajemensual+" %";
 
-document.getElementById('activamensual').innerHTML=activamensual+" kW";
-document.getElementById('reactivamensual').innerHTML=reactivamensual+" kW";
-document.getElementById('porcentajemensual').innerHTML=porcentajemensual+" %";
-
-document.getElementById('activasemanal').innerHTML=activasemanal+" kW";
-document.getElementById('reactivasemanal').innerHTML=reactivasemanal+" kW";
-document.getElementById('porcentajesemanal').innerHTML=porcentajesemanal+" %";
+document.getElementById('activasemanal').innerHTML=point.activasemanal+" kW";
+document.getElementById('reactivasemanal').innerHTML=point.reactivasemanal+" kW";
+document.getElementById('porcentajesemanal').innerHTML=point.porcentajesemanal+" %";
 
 			});
 		}, 1000);
