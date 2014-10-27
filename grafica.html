@@ -20,15 +20,15 @@
 		var activadiaria, reactivadiaria, porcentajediario;
 var activamensual, reactivamensual, porcentajemensual;
 var activaanual, reactivaanual, porcentajeanual;
-	var fecha=new Date();
-var ayer=new Date(fecha.getTime() - 24*60*60*1000);
-parametro=(ayer.getDate()+"-"+(ayer.getMonth()+1)+"-"+ayer.getFullYear());
+//	var fecha=new Date();
+//var ayer=new Date(fecha.getTime() - 24*60*60*1000);
+//parametro=(ayer.getDate()+"-"+(ayer.getMonth()+1)+"-"+ayer.getFullYear());
 		function setActive() {
 			aObj = document.getElementById('navegador').getElementsByTagName('a');
 			spanObj = document.getElementById('navegador').getElementsByTagName('span');
 			
 			for(i=0;i<aObj.length;i++) {
-				if(i==0) {
+				if(i==1) {
 					spanObj[i].style.color='#3498DB';
 				}
 			}
@@ -68,7 +68,7 @@ parametro=(ayer.getDate()+"-"+(ayer.getMonth()+1)+"-"+ayer.getFullYear());
     
         <script type="text/javascript">
     	setInterval(function() {
-			$.getJSON('/funciones/excesosreactivaapp.php?id='+ide+'&fechaini=14-10-2014&fechafin=21-10-2014&fechas='+parametro, function(point, textStatus){
+			$.getJSON('/funciones/excesosreactivaapp.php?id='+ide+'&fechaini=14-10-2014&fechafin=21-10-2014&fechas=21-10-2014', function(point, textStatus){
 				document.getElementById('suministro').innerHTML = point.poblacion;
 
 			document.getElementById('activadiaria').innerHTML=point.activadiaria+" kW";
